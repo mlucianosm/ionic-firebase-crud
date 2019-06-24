@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta http-equiv="refresh" content="7">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1.8" />-->
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+      <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet" href = "./materialize/css/materialize.min.css">
+      <link rel = "stylesheet" href = "./materialize/css/materialize.css">
+      <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "/materialize/materialize.min.js"></script>    
+    <!-- Enlaces Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+    <!-- Enlaces Firebase-->
+    <title>Listado</title>
+  </head>
+  <body class="blue lighten-5">
+      <script src="principal.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#reserved-urls -->
+
+<!-- Initialize Firebase 
+<script src="/__/firebase/init.js"></script>-->
+<div class="container" style="margin-top:0px;width: 80%">
+    <div class="chip">Listado de imagenes</div>
+        <table >
+          <tr><td>  <a href="./subearchivo.html" class="btn-floating btn-large blue darken-1"><i class="large material-icons">home</i></a></td></tr>
+          </button>
+        </table>
+    
+        
+    
+      <div class="container" id="list_div"><div class="list-item">  </div> 
+     
+    <script>
+
+      const list_div = document.querySelector("#list_div");
+      
+      db.collection("imagenes").get().then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                list_div.innerHTML+="<table class=\"\" style='width=\"90%\"'><td style='width=\"25%\"' class=\"white\"> " + doc.data().url + "</td><td class=\"white\"><a href=\""+ doc.data().url +"\" target=\"_blank\" ><i class=\'material-icons\' )>visibility</i></a></td></table>"
+              });
+              }); 
+       
+      </script>
+    
+    
+      
+    </div>
+  </body>
+</html> 

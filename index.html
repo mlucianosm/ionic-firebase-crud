@@ -1,0 +1,60 @@
+<html>
+<head>
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <!--<link rel="stylesheet" href="style.css" />-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" href="font-awesome-4.3.0/css/font-awesome.min.css">
+  <link rel = "stylesheet" href = "./materialize/css/materialize.min.css">
+      <link rel = "stylesheet" href = "./materialize/css/materialize.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link type="text/css" rel="stylesheet" href="css/index.css">
+  <link rel="shortcut icon" href="favicon (6).ico" type="image/x-icon">
+<link rel="icon" href="favicon (6).ico" type="image/x-icon">
+</head>
+<body class="blue lighten-5">
+    <div class="container" style="margin-top:90px;width: 30%">
+      
+      <h2> Eva2 Firebase</h2>
+     <h3>Ingreso </h3>
+                        
+                          <div id="login_div" class="main-div">
+                              <input type="email" placeholder="Correo..." id="email_field" class="white"/>
+                              <input type="password" placeholder="Contrasena..." id="password_field" class="white"/>
+                              <button onclick="login()" class="waves-effect waves-light btn">Enviar</button>
+                              
+                          </div>
+                       
+                          <div id="user_div" class="loggedin-div">
+                            
+                          <p id="user_para">Se ha autenticado correctamente.</p>
+                            <button onclick="seguir()" class="waves-effect waves-light btn">Continuar</button><br><br><br>
+                            <button onclick="logout()" class="waves-effect waves-light btn">Salir</button>
+                          </div>
+                        
+               
+    </div><!--conatiner-->
+                      <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+                      <script>
+                        // Initialize Firebase
+                        var config = {
+                          apiKey: "AIzaSyAp8hM1_awR00OcuSUpWJsa1Fy7pFprQt0",
+                          authDomain: "eva2-e7262.firebaseapp.com",
+                          databaseURL: "https://eva2-e7262.firebaseio.com",
+                          projectId: "eva2-e7262",
+                          storageBucket: "eva2-e7262.appspot.com",
+                          messagingSenderId: "932398984498",
+                          appId: "1:932398984498:web:d22bdb35cf0bd01b"
+                        };
+                        firebase.initializeApp(config);
+                      </script>
+                      <script src="index.js"></script>
+                      <script>
+                          function seguir(){
+                            window.location.href = "principal.html";
+                          }
+                      </script>
+</div>
+</body>
+</html>

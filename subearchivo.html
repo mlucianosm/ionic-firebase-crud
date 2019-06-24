@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+          <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+          <link rel = "stylesheet" href = "./materialize/css/materialize.min.css">
+          <link rel = "stylesheet" href = "./materialize/css/materialize.css">
+          <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+          <script src = "/materialize/materialize.min.js"></script>    
+        <!-- Enlaces Firebase-->
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+  <meta charset="UTF-8">
+  <link rel = "stylesheet" href = "./materialize/css/materialize.min.css">
+      <link rel = "stylesheet" href = "./materialize/css/materialize.css">
+      <script src = "./materialize/materialize.min.js"></script> 
+  <title>Subir archivos con Firebase</title>
+</head>
+<body class="blue lighten-5">
+    <script src="principal.js"></script>
+    <br><br>
+        <div class="chip" style="margin-left:30%;width: 30%">Cargar Archivo</div>
+        <a href="./principal.html" class="btn-floating btn-large blue darken-1"><i class="large material-icons">home</i></a>
+        <td>  <a href="./listaimagenes.html" class="btn-floating btn-large yellow darken-1"><i class="large material-icons">monochrome_photos</i></a>
+ <div class="container" style="border:1px;margin-top:90px;width: 30%">
+  <input type="file" id="campoarchivo">
+  <div id="mensaje">
+
+     <div class="container" style="margin-top:90px;width: 90%"></div>
+     
+
+      </div>
+     </div>
+
+  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAp8hM1_awR00OcuSUpWJsa1Fy7pFprQt0",
+            authDomain: "eva2-e7262.firebaseapp.com",
+            databaseURL: "https://eva2-e7262.firebaseio.com",
+            projectId: "eva2-e7262",
+            storageBucket: "eva2-e7262.appspot.com",
+            messagingSenderId: "932398984498",
+            appId: "1:932398984498:web:d22bdb35cf0bd01b"
+    };
+    firebase.initializeApp(config);
+    
+    // Servicios de APIs Firebase
+    var authService = firebase.auth();
+    var storageService = firebase.storage();
+
+    window.onload = function() {
+      // realizamos la autenticación anónima (debe estar activada en la consola de Firebase)
+      authService.signInAnonymously()
+        .catch(function(error) {
+          console.error('Detectado error de autenticación', error);
+        });
+
+      // asociamos el manejador de eventos sobre el INPUT FILE
+      document.getElementById('campoarchivo').addEventListener('change', function(evento){
+        evento.preventDefault();
+        var archivo  = evento.target.files[0];
+        subirArchivo(archivo);
+      });
+    }
+
+    // función que se encargará de subir el archivo
+    function subirArchivo(archivo) {
+      // creo una referencia al lugar donde guardaremos el archivo
+      var refStorage = storageService.ref('imagenes').child(archivo.name);
+      // Comienzo la tarea de upload
+      var uploadTask = refStorage.put(archivo);
+      
+
+      // defino un evento para saber qué pasa con ese upload iniciado
+      uploadTask.on('state_changed', null,
+        function(error){
+          console.log('Error al subir el archivo', error);
+        },
+        function(){
+          console.log('Subida completada');
+          mensajeFinalizado(uploadTask.snapshot.downloadURL, uploadTask.snapshot.totalBytes);
+          
+        }
+        
+      );
+      
+    }
+
+    // a esta función la invocamos para mostrar el mensaje final después del upload
+    function mensajeFinalizado(url, bytes) {
+      var elMensaje = document.getElementById('mensaje');
+      var textoMensaje = '<p>El archivo fue cargado exitosamente !';
+      textoMensaje += '<br>Bytes subidos: ' + bytes;
+     // textoMensaje += '<br><a href="' + url + '">Ver el fichero</a></p>';
+textoMensaje += '<br><a href='+ url + '  class=\'btn-floating btn-large orange darken-1\' target=\'_blank\'><i class=\'large material-icons\' onclick=grabaurl(\"'+ url +'\")>visibility</i></a>';
+
+      elMensaje.innerHTML = textoMensaje;
+    }
+    
+  </script>
+  </div>
+  
+</body>
+</html>

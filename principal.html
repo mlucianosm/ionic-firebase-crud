@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="refresh" content="12">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1.8" />-->
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+      <link rel = "stylesheet" href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet" href = "./materialize/css/materialize.min.css">
+      <link rel = "stylesheet" href = "./materialize/css/materialize.css">
+      <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "/materialize/materialize.min.js"></script>    
+    <!-- Enlaces Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+    <!-- Enlaces Firebase-->
+    <title>Registro</title>
+  </head>
+  <body class="blue lighten-5">
+   <script src="principal.js"></script>
+    <script src="/__/firebase/6.1.1/firebase-app.js"></script>
+    <div class="container" style="margin-top:90px;width: 30%">
+    <div class="chip" style="width:100%">Registro de Personas</div>
+    <table class="centered">
+    
+     <tr><td> <input placeholder="Nombre..." class="white" type="text" name="nombre" id="nombre" ><br></td></tr> 
+     <tr><td> <input placeholder="Apellido..." class="white" type="text" name="apellido" id="apellido"><br></td></tr> 
+     <tr><td> <input placeholder="Edad" class="white" type="text" name="edad" id="edad"><br></td></tr> 
+    </table>
+    <table class="centered">
+    <tr>
+    <td><a class="btn-floating btn-large blue darken-1"><i class="large material-icons" onclick="agregardatos()">plus_one</i></a></td>
+    
+    <td><a class="btn-floating btn-large waves-effect waves-light green darken-1" href="./todos.html">
+      <i class="large material-icons">people</i></a></td>
+      <td><a class="btn-floating btn-large waves-effect waves-light black darken-1" href="./subearchivo.html">
+        <i class="large material-icons">add_a_photo</i></a></td>
+      <td><a class="btn-floating btn-large orange darken-1" href="./index.html"><i class="large material-icons">home</i></a></td></tr>
+    </table>
+    
+  </div>
+  
+ 
+  
+        
+  </body>
+</html> 
