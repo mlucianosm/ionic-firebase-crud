@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home">Volver</ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle Producto </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    
+  </div>
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-item>
+      <ion-label position="floating" color="tertiary">Producto</ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="tertiary">Descripcion</ion-label>
+      <ion-input type="text" formControlName="description"></ion-input>
+    </ion-item>
+    <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Modifica</ion-button>
+  </form>
+  <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Elimina</ion-button>
+
+</ion-content>
