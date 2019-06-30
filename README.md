@@ -7,6 +7,6 @@ Se ingresa a traves de una pagina ionic que utiliza Autenticacion para
 validar ingreso y continuar proceso.
 Una ves Autenticado el ingreso se desplegara una aplicacion que permitira el registro
 de productos. Posee Opciones Listado , Agregar , Modificar, Eliminar.
-![Registro Ingreso](https://github.com/mlucianosm/ionicrudfirebase/sistema.png)
+![Registro Ingreso](https://github.com/mlucianosm/ionicrudfirebase/blob/master/src/assets/imgs/sistema.png)
 
 
