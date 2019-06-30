@@ -1,4 +1,4 @@
-# ionic-firebase-crud :bookmark_tabs:
+# ionicrudfirebase :bookmark_tabs:
 Aplicativo para telefonos moviles que permite realizar CRUD utilizando Base NoSQL Firebase
 
 Registro de ingreso de productos
