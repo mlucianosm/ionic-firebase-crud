@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Galeria</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-content>
+    <ion-content>
+      
+      <ion-list>
+        <ion-item>
+          <ion-icon name="easel"></ion-icon><ion-label>Interior</ion-label>
+          <ion-toggle value="opcion1" (ionChange)="cambiaopcion1()"></ion-toggle>
+        </ion-item>
+      
+        <ion-item>
+          <ion-icon name="cash"></ion-icon><ion-label>Living</ion-label>
+          <ion-toggle  value="opcion2" (ionChange)="cambiaopcion2()"></ion-toggle>
+        </ion-item>
+      
+        <ion-item>
+          <ion-icon name="basket"></ion-icon><ion-label>Comedor</ion-label>
+          <ion-toggle  value="opcion3" (ionChange)="cambiaopcion3()"></ion-toggle>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-radio-group >
+            <ion-item>
+              <ion-icon name="flashlight"></ion-icon><ion-label>Linternas</ion-label>
+              <ion-radio  value="radio1" (click)="cambiaopcion11()"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="sunny"></ion-icon><ion-label>Leds</ion-label>
+              <ion-radio  value="radio2" (click)="cambiaopcion22()"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="cog"></ion-icon><ion-label>Decorativas</ion-label>
+              <ion-radio value="radio3" (click)="cambiaopcion33()"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="stats"></ion-icon><ion-label>Comercial</ion-label>
+              <ion-radio value="radio4" (click)="cambiaopcion44()"></ion-radio>
+            </ion-item>
+        </ion-radio-group>
+      </ion-list>
+      <ion-item>Mueble y Decoracion</ion-item>
+      <div *ngIf="opcion1check===1; then thenBlock1 else elseBlock1"></div>
+      <ng-template #thenBlock1>
+          <ion-card class="welcome-card">
+              <ion-card-title>Interior</ion-card-title>
+              <ion-item><ion-img style="width: 280px; height: 200px;" src="./assets/imgs/decointerior.jpg" ></ion-img></ion-item>
+            </ion-card>
+      </ng-template>
+      <ng-template #elseBlock1></ng-template> 
+      <div *ngIf="opcion2check===2; then thenBlock2 else elseBlock2"></div>
+      <ng-template #thenBlock2>
+          <ion-card class="welcome-card">
+              <ion-card-header>
+                  <ion-card-title>Living</ion-card-title>
+                </ion-card-header>
+              <ion-item><ion-img style="width: 280px; height: 200px;" src="./assets/imgs/decofutones.jpg" ></ion-img></ion-item>
+            </ion-card>
+      </ng-template>
+      <ng-template #elseBlock2></ng-template>
+      <div *ngIf="opcion3check===3; then thenBlock3 else elseBlock3"></div>
+      <ng-template #thenBlock3>
+          <ion-card class="welcome-card">
+              <ion-card-title>Comedor</ion-card-title>
+              <ion-item><ion-img style="width: 280px; height: 200px;" src="./assets/imgs/decocomedor.jpg" ></ion-img></ion-item>
+            </ion-card>
+       </ng-template>
+      <ng-template #elseBlock3></ng-template>  
+
+     <ion-item>Iluminacion</ion-item>
+      <div *ngIf="radio1check===1; then thenBlock11 else elseBlock11"></div>
+      <ng-template #thenBlock11>
+          <ion-card class="welcome-card">
+              <ion-card-title>Linternas</ion-card-title>
+            <ion-item><ion-img style="width: 280px; height: 200px;" src="./assets/imgs/linter1.jpg"></ion-img></ion-item>
+          </ion-card>
+      </ng-template>
+      <ng-template #elseBlock11></ng-template> 
+      <div *ngIf="radio2check===2; then thenBlock22 else elseBlock22"></div>
+      <ng-template #thenBlock22>
+          <ion-card-title>Leds</ion-card-title>
+        <ion-item><ion-img style="width: 280px; height: 200px;" src="./assets/imgs/led1.jpg"></ion-img></ion-item>
+      </ng-template>
+      <ng-template #elseBlock22></ng-template>
+      <div *ngIf="radio3check===3; then thenBlock33 else elseBlock33"></div>
+      <ng-template #thenBlock33>
+          <ion-card-title>Decorativas</ion-card-title>
+        <ion-item><ion-img style="width: 280px; height: 200px;" src="./assets/imgs/ampolletaadorno.jpg"></ion-img></ion-item>
+      </ng-template>
+      <ng-template #elseBlock33></ng-template>
+      <div *ngIf="radio4check===4; then thenBlock44 else elseBlock44"></div>
+      <ng-template #thenBlock44>
+          <ion-card-title>Comercial</ion-card-title>
+        <ion-item><ion-img style="width: 280px; height: 200px;" src="./assets/imgs/led-comercial.jpg"></ion-img></ion-item>
+      </ng-template>
+      <ng-template #elseBlock44></ng-template>
+     
+        
+    
+        
+       
+    </ion-content>
+    
+  </ion-content>
+</ion-content>
